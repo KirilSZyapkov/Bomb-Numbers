@@ -1,0 +1,19 @@
+function bombNumbers(sequence, bomb) {
+    let specialNumber = bomb[0];
+    let bombPower = bomb[1];
+    let newArray = [];
+
+    for ( let index = 0; index < sequence.length; index++) {
+        if (sequence[index] != specialNumber) {
+            newArray.push(sequence[index]);
+
+        } else {
+            for (let outIndex = bombPower; outIndex > 0; outIndex--) {
+                newArray.pop();
+            }
+            index += bombPower
+        }
+    }
+
+console.log(newArray.reduce((a, b) => a + b, 0));
+}
